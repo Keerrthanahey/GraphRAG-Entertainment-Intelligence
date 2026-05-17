@@ -380,3 +380,4 @@ class ChromaVectorStore:
         if not self.client:
             return []
         return [c.name for c in self.client.list_collections()]
+    
