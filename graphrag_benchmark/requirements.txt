@@ -21,6 +21,7 @@ pyTigerGraph>=1.5.0
 # Embeddings / NLP
 sentence-transformers>=2.2.2
 torch
+torchvision
 transformers
 
 # Web framework
