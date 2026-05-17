@@ -514,3 +514,15 @@ elif page == "⚙️ System Configuration":
 
 st.markdown("---")
 st.caption("⚡ GraphRAG Entertainment Intelligence Benchmark • BasicRAG + LLM + GraphRAG • Parallel Execution")
+
+import os
+import streamlit as st
+
+st.write("Current directory:", os.getcwd())
+st.write("Files:", os.listdir("."))
+
+if os.path.exists("chroma_db"):
+    st.success("chroma_db exists")
+    st.write(os.listdir("chroma_db"))
+else:
+    st.error("chroma_db missing")
