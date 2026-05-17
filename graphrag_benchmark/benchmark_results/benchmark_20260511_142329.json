@@ -1,0 +1,7 @@
+{
+  "BasicRAG": {
+    "pipeline_name": "Basic RAG (Vector Search)",
+    "pipeline_config": {
+      "top_k": 5,
+      "score_threshold": 0.5,
+      "embedding_model": 

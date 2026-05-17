@@ -1,0 +1,91 @@
+# GraphRAG Benchmark Configuration
+# ================================
+
+# Project Settings
+project:
+  name: "GraphRAG Entertainment Intelligence"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Dataset Configuration
+dataset:
+  raw_path: "data/raw/imdb_top_1000.csv"
+  processed_path: "data/processed"
+  chunk_size: 512
+  chunk_overlap: 50
+  min_chunk_length: 100
+
+# Embedding Configuration
+embeddings:
+  provider: "gemini"
+  model: "text-embedding-004"
+  dimension: 768
+  batch_size: 100
+  max_retries: 3
+  retry_delay: 2.0
+
+# ChromaDB Configuration
+chromadb:
+  host: "localhost"
+  port: 8000
+  collection_name: "entertainment_movies"
+  distance_metric: "cosine"
+  persist_directory: "./chroma_db"
+  anonymized_telemetry: false
+
+# Gemini API Configuration
+gemini:
+  embedding_model: "text-embedding-004"
+  generation_model: "gemini-1.5-flash-latest"
+  temperature: 0.3
+  max_output_tokens: 2048
+  top_p: 0.95
+  top_k: 40
+
+# TigerGraph Configuration
+tigergraph:
+  host: "your-instance.i.tgcloud.io"
+  graphname: "EntertainmentGraph"
+  username: "tigergraph"
+  password: ""
+  secret: ""
+  token: ""
+
+# Pipeline Configuration
+pipelines:
+  basic_rag:
+    top_k: 5
+    score_threshold: 0.7
+  
+  hybrid_rag:
+    semantic_weight: 0.6
+    keyword_weight: 0.4
+    top_k: 5
+    rerank: true
+  
+  graphrag:
+    traversal_depth: 2
+    max_nodes: 20
+    relationship_types: ["DIRECTED", "ACTED_IN", "SIMILAR_GENRE", "SAME_ERA"]
+
+# Benchmark Configuration
+benchmark:
+  num_queries: 50
+  warmup_runs: 5
+  metrics:
+    - latency_ms
+    - token_usage
+    - cost_usd
+    - retrieval_precision
+    - retrieval_recall
+    - ndcg
+    - relationship_accuracy
+  output_dir: "benchmark_results"
+
+# Visualization
+visualization:
+  graph_layout: "spring"
+  max_nodes_display: 50
+  node_size_attribute: "imdb_rating"
+  color_by: "genre"

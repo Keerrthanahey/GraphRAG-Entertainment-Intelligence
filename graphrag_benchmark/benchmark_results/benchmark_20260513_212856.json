@@ -1,0 +1,327 @@
+{
+  "BasicRAG": {
+    "pipeline_name": "Basic RAG (Vector Search)",
+    "pipeline_config": {
+      "top_k": 5,
+      "score_threshold": 0.5,
+      "embedding_model": "SentenceTransformer(\n  (0): Transformer({'transformer_task': 'feature-extraction', 'modality_config': {'text': {'method': 'forward', 'method_output_name': 'last_hidden_state'}}, 'module_output_name': 'token_embeddings', 'architecture': 'BertModel'})\n  (1): Pooling({'embedding_dimension': 384, 'pooling_mode': 'mean', 'include_prompt': True})\n  (2): Normalize({})\n)",
+      "store_type": "ChromaDB"
+    },
+    "num_queries": 10,
+    "aggregate_metrics": {
+      "avg_latency_ms": 40.79,
+      "median_latency_ms": 41.08,
+      "p95_latency_ms": 44.69,
+      "min_latency_ms": 37.67,
+      "max_latency_ms": 44.69,
+      "avg_tokens": 7.0,
+      "avg_cost_usd": 0.0,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "failed_queries": 0,
+      "error_rate": 0.0
+    },
+    "timestamp": "2026-05-13T21:28:54.804325",
+    "total_time_seconds": 0.48,
+    "results": [
+      {
+        "query": "Movies directed by Christopher Nolan",
+        "latency_ms": 40.16,
+        "num_results": 5,
+        "avg_score": 0.6933,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films by Steven Spielberg",
+        "latency_ms": 43.5,
+        "num_results": 5,
+        "avg_score": 0.6346,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "What movies did Quentin Tarantino direct?",
+        "latency_ms": 42.41,
+        "num_results": 5,
+        "avg_score": 0.5379,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Movies starring Tom Hanks",
+        "latency_ms": 42.0,
+        "num_results": 5,
+        "avg_score": 0.6357,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films with Morgan Freeman",
+        "latency_ms": 42.16,
+        "num_results": 5,
+        "avg_score": 0.608,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best Leonardo DiCaprio movies",
+        "latency_ms": 44.69,
+        "num_results": 3,
+        "avg_score": 0.5084,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best horror movies",
+        "latency_ms": 37.73,
+        "num_results": 5,
+        "avg_score": 0.5377,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Top science fiction films",
+        "latency_ms": 37.67,
+        "num_results": 4,
+        "avg_score": 0.5162,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Classic romance movies",
+        "latency_ms": 38.02,
+        "num_results": 5,
+        "avg_score": 0.5579,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Action movies from the 2000s",
+        "latency_ms": 39.53,
+        "num_results": 1,
+        "avg_score": 0.5109,
+        "has_answer": false,
+        "error": null
+      }
+    ]
+  },
+  "HybridRAG": {
+    "pipeline_name": "Hybrid RAG (Semantic + Keyword, 0.6/0.4)",
+    "pipeline_config": {
+      "top_k": 5,
+      "semantic_weight": 0.6,
+      "keyword_weight": 0.4,
+      "rerank": true,
+      "embedding_model": "SentenceTransformer(\n  (0): Transformer({'transformer_task': 'feature-extraction', 'modality_config': {'text': {'method': 'forward', 'method_output_name': 'last_hidden_state'}}, 'module_output_name': 'token_embeddings', 'architecture': 'BertModel'})\n  (1): Pooling({'embedding_dimension': 384, 'pooling_mode': 'mean', 'include_prompt': True})\n  (2): Normalize({})\n)",
+      "keyword_index_size": 9649
+    },
+    "num_queries": 10,
+    "aggregate_metrics": {
+      "avg_latency_ms": 44.54,
+      "median_latency_ms": 39.67,
+      "p95_latency_ms": 79.78,
+      "min_latency_ms": 36.47,
+      "max_latency_ms": 79.78,
+      "avg_tokens": 7.0,
+      "avg_cost_usd": 0.0,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "failed_queries": 0,
+      "error_rate": 0.0
+    },
+    "timestamp": "2026-05-13T21:28:55.282561",
+    "total_time_seconds": 0.49,
+    "results": [
+      {
+        "query": "Movies directed by Christopher Nolan",
+        "latency_ms": 41.09,
+        "num_results": 5,
+        "avg_score": 1.0467,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films by Steven Spielberg",
+        "latency_ms": 36.71,
+        "num_results": 5,
+        "avg_score": 0.8732,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "What movies did Quentin Tarantino direct?",
+        "latency_ms": 37.79,
+        "num_results": 5,
+        "avg_score": 1.0191,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Movies starring Tom Hanks",
+        "latency_ms": 36.47,
+        "num_results": 5,
+        "avg_score": 1.0655,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films with Morgan Freeman",
+        "latency_ms": 37.05,
+        "num_results": 5,
+        "avg_score": 0.8231,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best Leonardo DiCaprio movies",
+        "latency_ms": 38.25,
+        "num_results": 5,
+        "avg_score": 1.0364,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best horror movies",
+        "latency_ms": 45.07,
+        "num_results": 5,
+        "avg_score": 0.5978,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Top science fiction films",
+        "latency_ms": 49.68,
+        "num_results": 5,
+        "avg_score": 0.5776,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Classic romance movies",
+        "latency_ms": 43.52,
+        "num_results": 5,
+        "avg_score": 0.5931,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Action movies from the 2000s",
+        "latency_ms": 79.78,
+        "num_results": 5,
+        "avg_score": 0.5737,
+        "has_answer": false,
+        "error": null
+      }
+    ]
+  },
+  "GraphRAG": {
+    "pipeline_name": "GraphRAG (LocalGraph, depth=2)",
+    "pipeline_config": {
+      "top_k": 5,
+      "traversal_depth": 2,
+      "max_nodes": 20,
+      "graph_type": "LocalGraph",
+      "graph_nodes": 3198,
+      "graph_edges": 249122
+    },
+    "num_queries": 10,
+    "aggregate_metrics": {
+      "avg_latency_ms": 42.82,
+      "median_latency_ms": 38.67,
+      "p95_latency_ms": 64.34,
+      "min_latency_ms": 34.95,
+      "max_latency_ms": 64.34,
+      "avg_tokens": 7.0,
+      "avg_cost_usd": 0.0,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "failed_queries": 0,
+      "error_rate": 0.0
+    },
+    "timestamp": "2026-05-13T21:28:55.791046",
+    "total_time_seconds": 0.51,
+    "results": [
+      {
+        "query": "Movies directed by Christopher Nolan",
+        "latency_ms": 36.38,
+        "num_results": 5,
+        "avg_score": 0.6933,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films by Steven Spielberg",
+        "latency_ms": 35.67,
+        "num_results": 5,
+        "avg_score": 0.6346,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "What movies did Quentin Tarantino direct?",
+        "latency_ms": 36.91,
+        "num_results": 5,
+        "avg_score": 0.5379,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Movies starring Tom Hanks",
+        "latency_ms": 37.17,
+        "num_results": 5,
+        "avg_score": 0.6357,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Films with Morgan Freeman",
+        "latency_ms": 34.95,
+        "num_results": 5,
+        "avg_score": 0.608,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best Leonardo DiCaprio movies",
+        "latency_ms": 64.34,
+        "num_results": 5,
+        "avg_score": 0.5019,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Best horror movies",
+        "latency_ms": 56.65,
+        "num_results": 5,
+        "avg_score": 0.5377,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Top science fiction films",
+        "latency_ms": 40.17,
+        "num_results": 5,
+        "avg_score": 0.5129,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Classic romance movies",
+        "latency_ms": 44.54,
+        "num_results": 5,
+        "avg_score": 0.5579,
+        "has_answer": false,
+        "error": null
+      },
+      {
+        "query": "Action movies from the 2000s",
+        "latency_ms": 41.4,
+        "num_results": 5,
+        "avg_score": 0.4885,
+        "has_answer": false,
+        "error": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+pipeline,avg_latency_ms,median_latency_ms,p95_latency_ms,max_latency_ms,avg_tokens,error_rate,total_queries,successful_queries
+BasicRAG,40.79,41.08,44.69,44.69,7.0,0.0,10,10
+HybridRAG,44.54,39.67,79.78,79.78,7.0,0.0,10,10
+GraphRAG,42.82,38.67,64.34,64.34,7.0,0.0,10,10
